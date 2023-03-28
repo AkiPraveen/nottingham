@@ -1,6 +1,8 @@
-import app
+from flask import Blueprint
 
-@app.route('/')
+home_blueprint = Blueprint('home', __name__,)
+
+@home_blueprint.route('/')
 def home():
     return 'OK', 200
 

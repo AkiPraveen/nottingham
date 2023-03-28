@@ -2,8 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-db = SQLAlchemy()
+from app.routers.home import home_blueprint
 
+db = SQLAlchemy()
 def create_app(test_config=None):
     # create flask app
     app = Flask(__name__)
@@ -12,8 +13,8 @@ def create_app(test_config=None):
     db.init_app(app)
     Migrate(app, db)
 
-    from app.models import Example, Asset
+    from app.models.asset import Asset
 
-    # other registrations
+    app.register_blueprint(home_blueprint)
 
     return app
