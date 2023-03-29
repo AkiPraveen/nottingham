@@ -15,7 +15,7 @@ def get_balance_usd_cents(username: str):
 
 @user_blueprint.route('/add_balance_usd_cents', methods=['POST'])
 @authorize
-def add_cash(username: str):
+def add_balance_usd_cents(username: str):
     request_json = request.json
 
     # Request body validation

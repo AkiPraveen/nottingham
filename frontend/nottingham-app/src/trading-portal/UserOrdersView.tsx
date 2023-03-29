@@ -97,7 +97,7 @@ const UserOrdersView = (props: UserOrdersViewProps) => {
         const updatedPositionQuantity = data.updated_position_quantity;
         const updatedUserBalanceUsdCents = data.updated_user_balance_usd_cents;
 
-        const message = `Order succesful. You now have ${updatedPositionQuantity} shares of ${orderTicker} at $${pricePerShareUsdCents / 100} per share. Your new balance is $${updatedUserBalanceUsdCents / 100}.`
+        const message = `Order placed successfully at ${new Date()}. You now have ${updatedPositionQuantity} shares of ${orderTicker} at $${pricePerShareUsdCents / 100} per share. Your new balance is $${updatedUserBalanceUsdCents / 100}.`
 
 
         console.log('Order success:', data);
