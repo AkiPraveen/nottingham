@@ -66,6 +66,13 @@ def owned_tickers_market_prices(username: str):
 
 ### INFORMATION FOR SINGLE TICKER
 
+@position_blueprint.route('/<ticker>/market-price', methods=['GET'])
+@authorize
+def single_ticker_market_price(username: str, ticker: str):
+    market_price = position_services.get_stock_price_usd_cents(ticker)
+    return {'market_price': market_price}, 200
+
+
 @position_blueprint.route('/<ticker>/history', methods=['GET'])
 @authorize
 def single_ticker_history(username: str, ticker: str):

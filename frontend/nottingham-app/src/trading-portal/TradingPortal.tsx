@@ -1,5 +1,6 @@
 import UserPositionsView from "./UserPositionsView";
 import React from "react";
+import UserOrdersView from "./UserOrdersView";
 
 export type TradingPortalProps = {
   backendUrl: string;
@@ -35,7 +36,7 @@ const TradingPortal = (props: TradingPortalProps) => {
 
 
   return (
-    <div className={"bg-black h-screen p-10"}>
+    <div className={"bg-black h-full p-10"}>
       <div className={"flex flex-column flex-start w-full"}>
         <div className={"hover:cursor-pointer"} onClick={selectUserPositions}>
           <h1 className={
@@ -57,6 +58,11 @@ const TradingPortal = (props: TradingPortalProps) => {
         (currentView === VIEWS.USER_POSITIONS) &&
         <UserPositionsView backendUrl={backendUrl} authToken={authToken} />
       }
+      {
+        (currentView === VIEWS.USER_ORDERS) &&
+        <UserOrdersView backendUrl={backendUrl} authToken={authToken} />
+      }
+
     </div>
   )
 }
