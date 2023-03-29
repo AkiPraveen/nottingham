@@ -121,7 +121,10 @@ def execute_sell_order(
 ):
     sell_price = quantity * price_usd_cents
 
-    position = get_position_by_ticker(ticker)
+    position = get_position_by_ticker_and_user_id(
+        ticker=ticker,
+        user_id=user.id
+    )
     if not position:
         raise Exception(f'No position found for ticker {ticker}, cannot sell')
     if position:
@@ -168,7 +171,10 @@ def execute_buy_order(
     if user.balance_usd_cents < buy_price:
         raise Exception('Not enough balance to buy')
 
-    position = get_position_by_ticker(ticker)
+    position = get_position_by_ticker_and_user_id(
+        ticker=ticker,
+        user_id=user.id
+    )
     if not position:
         # Create the position object w/ quantity
         position = position_model.Position(
@@ -199,9 +205,11 @@ def execute_buy_order(
     }
 
 
-def get_position_by_ticker(ticker: str) -> position_model.Position:
+def get_position_by_ticker_and_user_id(ticker: str, user_id: int) -> position_model.Position:
     found_position = position_model.db.session.query(
         position_model.Position
+    ).filter(
+        position_model.Position.user_id == user_id
     ).filter(
         position_model.Position.ticker == ticker
     ).first()

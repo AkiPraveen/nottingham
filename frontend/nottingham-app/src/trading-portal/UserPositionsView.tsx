@@ -21,6 +21,7 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
 
   // Positions data
   const [userPositionsRequestData, setUserPositionsRequestData] = React.useState<UserPositionsRequestData>({})
+  const [dataReceived, setDataReceived] = React.useState<boolean>(false);
 
 
   const fetchUserData = () => {
@@ -44,6 +45,7 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
       const foundUserPositions = data
       console.log('found user positions:', foundUserPositions);
       setUserPositionsRequestData(foundUserPositions);
+      setDataReceived(true);
     })
 
   }
@@ -58,7 +60,11 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
 
       {Object.keys(userPositionsRequestData).length === 0 ? (
         <div className={"mt-8"}>
-          <h1 className={"text-white"}>collecting securities data ...</h1>
+          {dataReceived ? (
+            <h1 className={"text-white"}>You have no positions.</h1>
+          ) : (
+            <h1 className={"text-white"}>collecting securities data ...</h1>
+            )}
         </div>
       ) : (
         <>
