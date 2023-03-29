@@ -51,17 +51,23 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
 
   return (
     <div>
-      <h1>User Positions</h1>
-      {Object.keys(userPositionsRequestData).map((ticker) => {
-        return (
-          <StockChip
-            ticker={ticker}
-            quantity={userPositionsRequestData[ticker]['quantity']}
-            marketPriceUsdCents={userPositionsRequestData[ticker]['market_price_usd_cents']}
-            historyUsdCents={userPositionsRequestData[ticker]['history_usd_cents']}
-          />
-        )
-      })}
+      {Object.keys(userPositionsRequestData).length === 0 ? (
+        <div className={"mt-8"}>
+          <h1 className={"text-white"}>collecting securities data ...</h1>
+        </div>
+      ) : (
+        <div className={"mt-8"}>
+          {Object.keys(userPositionsRequestData).map((ticker) => {
+            return (
+              <StockChip
+                ticker={ticker}
+                quantity={userPositionsRequestData[ticker]['quantity']}
+                marketPriceUsdCents={userPositionsRequestData[ticker]['market_price_usd_cents']}
+                historyUsdCents={userPositionsRequestData[ticker]['history_usd_cents']}
+              />
+            )
+          })}
+        </div>)}
     </div>
   )
 

@@ -20,7 +20,7 @@ def owned_tickers_summary(username: str):
     position_quantities = position_services.get_user_positions(username)
     position_market_prices = position_services.get_market_prices(user_tickers)
     position_histories = {
-        ticker: position_services.get_stock_price_history_usd_cents(ticker, '5d', '30m') for ticker in user_tickers
+        ticker: position_services.get_stock_price_history_usd_cents(ticker, '3mo', '1d') for ticker in user_tickers
     }
 
     result = {}
@@ -47,7 +47,7 @@ def owned_tickers_history(username: str):
     user_tickers = [k for k in position_services.get_user_positions(username)]
 
     history = {
-        ticker: position_services.get_stock_price_history_usd_cents(ticker, '5d', '30m') for ticker in user_tickers
+        ticker: position_services.get_stock_price_history_usd_cents(ticker, '3mo', '1d') for ticker in user_tickers
     }
     return {'history': history}, 200
 
@@ -76,7 +76,7 @@ def single_ticker_market_price(username: str, ticker: str):
 @position_blueprint.route('/<ticker>/history', methods=['GET'])
 @authorize
 def single_ticker_history(username: str, ticker: str):
-    history = position_services.get_stock_price_history_usd_cents(ticker, '5d', '30m')
+    history = position_services.get_stock_price_history_usd_cents(ticker, '3mo', '1d')
     return {'history': history}, 200
 
 
@@ -118,12 +118,15 @@ def order(username: str):
         return 'Invalid order type (use BUY or SELL)', 400
 
     # execute buy/sell order
-    order_summary = position_services.execute_order(
-        username=username,
-        order_type=order_type,
-        ticker=ticker,
-        quantity=quantity_int
-    )
+    try:
+        order_summary = position_services.execute_order(
+            username=username,
+            order_type=order_type,
+            ticker=ticker,
+            quantity=quantity_int
+        )
+    except Exception as e:
+        return {'message': f'Order failed: {e}'}, 400
 
     # return a dict detailing the order summary
     return order_summary, 200

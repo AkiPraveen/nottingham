@@ -36,7 +36,7 @@ const TradingPortal = (props: TradingPortalProps) => {
 
 
   return (
-    <div className={"bg-black h-full p-10"}>
+    <div className={"bg-black min-h-screen p-10"}>
       <div className={"flex flex-column flex-start w-full"}>
         <div className={"hover:cursor-pointer"} onClick={selectUserPositions}>
           <h1 className={
