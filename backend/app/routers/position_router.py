@@ -42,11 +42,12 @@ def order(username: str):
         return 'Invalid order type (use BUY or SELL)', 400
 
     # execute buy/sell order
-    position_services.execute_order(
+    order_summary = position_services.execute_order(
         username=username,
         order_type=order_type,
         ticker=ticker,
         quantity=quantity_int
     )
 
-    return 'OK', 200
+    # return a dict detailing the order summary
+    return order_summary, 200
