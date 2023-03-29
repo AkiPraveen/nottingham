@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="" />
+    <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/stock-chip/StockChip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/services/position_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/services/position_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trading-portal/TradingPortal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/TradingPortal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trading-portal/UserPositionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/UserPositionsView.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +44,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/stock-chip" />
       <recent name="$PROJECT_DIR$/src/trading-portal" />
     </key>
   </component>
@@ -48,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680065316011</updated>
       <workItem from="1680065318013" duration="1632000" />
-      <workItem from="1680067231376" duration="8167000" />
+      <workItem from="1680067231376" duration="13813000" />
     </task>
     <servers />
   </component>
