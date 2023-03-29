@@ -1,5 +1,6 @@
 import React from "react";
 import StockChip from "../stock-chip/StockChip";
+import UserBalance from "../user-balance/UserBalance";
 
 // User positions data, from one aggregate request
 export type UserPositionsRequestData = {
@@ -18,12 +19,11 @@ export type UserPositionsViewProps = {
 const UserPositionsView = (props:UserPositionsViewProps) => {
   const {authToken, backendUrl} = props;
 
+  // Positions data
   const [userPositionsRequestData, setUserPositionsRequestData] = React.useState<UserPositionsRequestData>({})
 
 
-  // fetch user positions
-  React.useEffect(() => {
-
+  const fetchUserData = () => {
     // First, fetch the positions & their quantities
     fetch(`${backendUrl}/positions`, {
       method: 'GET',
@@ -46,16 +46,23 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
       setUserPositionsRequestData(foundUserPositions);
     })
 
+  }
 
+  // fetch user positions and balance
+  React.useEffect(() => {
+    fetchUserData();
   }, [authToken, backendUrl])
 
   return (
     <div>
+
       {Object.keys(userPositionsRequestData).length === 0 ? (
         <div className={"mt-8"}>
           <h1 className={"text-white"}>collecting securities data ...</h1>
         </div>
       ) : (
+        <>
+          <UserBalance backendUrl={backendUrl} authToken={authToken} />
         <div className={"mt-8"}>
           {Object.keys(userPositionsRequestData).map((ticker) => {
             return (
@@ -67,7 +74,9 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
               />
             )
           })}
-        </div>)}
+        </div>
+        </>
+      )}
     </div>
   )
 

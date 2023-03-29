@@ -1,6 +1,7 @@
 import UserPositionsView from "./UserPositionsView";
 import React from "react";
 import UserOrdersView from "./UserOrdersView";
+import UserAddFundsView from "./UserAddFundsView";
 
 export type TradingPortalProps = {
   backendUrl: string;
@@ -62,7 +63,10 @@ const TradingPortal = (props: TradingPortalProps) => {
         (currentView === VIEWS.USER_ORDERS) &&
         <UserOrdersView backendUrl={backendUrl} authToken={authToken} />
       }
-
+      {
+        (currentView === VIEWS.USER_ADD_FUNDS) &&
+        <UserAddFundsView backendUrl={backendUrl} authToken={authToken} />
+      }
     </div>
   )
 }

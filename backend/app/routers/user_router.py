@@ -6,9 +6,16 @@ from app.token_required import authorize
 user_blueprint = Blueprint('user', __name__)
 
 
+@user_blueprint.route('/balance_usd_cents', methods=['GET'])
+@authorize
+def get_balance_usd_cents(username: str):
+    balance_usd_cents = user_services.get_balance_usd_cents(username)
+    return {'balance_usd_cents': balance_usd_cents}, 200
+
+
 @user_blueprint.route('/add_balance_usd_cents', methods=['POST'])
 @authorize
-def add_cash(username: str):
+def add_balance_usd_cents(username: str):
     request_json = request.json
 
     # Request body validation
