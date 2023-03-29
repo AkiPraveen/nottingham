@@ -1,4 +1,4 @@
-from app.models import position_model
+from app.models import position_model, user_model
 from app.models.position_model import db
 
 VALID_ORDER_TYPES = ['BUY', 'SELL']
@@ -9,21 +9,26 @@ def validate_order_type(order_type: str):
 
 
 def execute_order(
+        username: str,
         order_type: str,
         ticker: str,
         quantity: int,
 ) -> position_model.Position:
+    # get user
+    user = user_model.get_user_by_username(username)
+
     if order_type == 'BUY':
         return execute_buy_order(
-            ticker, quantity
+            user, ticker, quantity
         )
     elif order_type == 'SELL':
         return execute_sell_order(
-            ticker, quantity
+            user, ticker, quantity
         )
 
 
 def execute_sell_order(
+        user: user_model.User,
         ticker: str,
         quantity: int
 ) -> position_model.Position:
@@ -51,6 +56,7 @@ def execute_sell_order(
 
 
 def execute_buy_order(
+        user: user_model.User,
         ticker: str,
         quantity: int,
 ) -> position_model.Position:

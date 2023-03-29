@@ -1,12 +1,14 @@
 from flask import Blueprint, request
 
 from app.services import position_services
+from app.token_required import authorize
 
 position_blueprint = Blueprint('position', __name__)
 
 
 @position_blueprint.route('/<ticker>', methods=['GET'])
-def get_position(ticker: str):
+@authorize
+def get_position(username: str, ticker: str):
     position = position_services.get_position_by_ticker(ticker)
     if not position:
         return 'Position not found', 404
@@ -18,7 +20,8 @@ def get_position(ticker: str):
 
 
 @position_blueprint.route('/order', methods=['POST'])
-def order():
+@authorize
+def order(username: str):
     request_json = request.json
 
     # Request body validation
@@ -40,6 +43,7 @@ def order():
 
     # execute buy/sell order
     position_services.execute_order(
+        username=username,
         order_type=order_type,
         ticker=ticker,
         quantity=quantity_int

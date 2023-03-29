@@ -2,9 +2,9 @@ import os, hashlib, jwt
 
 from app import db
 from app.models.user_model import User
+from app.token_required import JWT_ALGORITHM
 
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
-JWT_ALGORITHM = 'HS256'
 
 
 def get_user_by_username(username: str) -> User:
