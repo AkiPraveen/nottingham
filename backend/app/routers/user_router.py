@@ -44,9 +44,12 @@ def register():
         return 'Provide a password', 400
 
     # Create user
-    user = user_services.create_user(username, password)
+    try:
+        user = user_services.create_user(username, password)
+    except Exception as e:
+        return {'message': str(e)}, 400
 
-    return 'OK', 200
+    return {'message': 'OK'}, 200
 
 
 @user_blueprint.route('/login', methods=['POST'])
