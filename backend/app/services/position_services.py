@@ -139,10 +139,18 @@ def execute_sell_order(
     db.session.commit()
     db.session.refresh(position)
     db.session.refresh(user)
+
+    position_quantity = position.quantity
+
+    # if the position has reached quantity 0, delete it
+    if position.quantity == 0:
+        db.session.delete(position)
+        db.session.commit()
+
     return {
         'ticker': position.ticker,
         'price_per_share_usd_cents': price_usd_cents,
-        'updated_position_quantity': position.quantity,
+        'updated_position_quantity': position_quantity,
         'updated_user_balance_usd_cents': user.balance_usd_cents,
     }
 
