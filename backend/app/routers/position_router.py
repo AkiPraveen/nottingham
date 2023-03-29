@@ -73,6 +73,14 @@ def single_ticker_market_price(username: str, ticker: str):
     return {'market_price': market_price}, 200
 
 
+@position_blueprint.route('/<ticker>/research', methods=['GET'])
+@authorize
+def single_ticker_research(username: str, ticker: str):
+    print(ticker)
+    research = position_services.get_research_by_ticker(ticker=ticker)
+    return {'research': research}, 200
+
+
 @position_blueprint.route('/<ticker>/history', methods=['GET'])
 @authorize
 def single_ticker_history(username: str, ticker: str):

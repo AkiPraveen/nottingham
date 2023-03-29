@@ -2,6 +2,7 @@ import UserPositionsView from "./UserPositionsView";
 import React from "react";
 import UserOrdersView from "./UserOrdersView";
 import UserAddFundsView from "./UserAddFundsView";
+import UserSearchView from "./UserSearchView";
 
 export type TradingPortalProps = {
   backendUrl: string;
@@ -12,6 +13,7 @@ const VIEWS = {
   USER_POSITIONS: 'USER_POSITIONS',
   USER_ORDERS: 'USER_ORDERS',
   USER_ADD_FUNDS: 'USER_ADD_FUNDS',
+  USER_SEARCH_STOCKS: 'USER_SEARCH_STOCKS',
 }
 
 type TradingPortalState = keyof typeof VIEWS;
@@ -35,6 +37,10 @@ const TradingPortal = (props: TradingPortalProps) => {
     setCurrentView(VIEWS.USER_ADD_FUNDS as TradingPortalState);
   }
 
+  const selectUserSearchStocks = () => {
+    setCurrentView(VIEWS.USER_SEARCH_STOCKS as TradingPortalState);
+  }
+
 
   return (
     <div className={"bg-black min-h-screen p-10"}>
@@ -54,6 +60,11 @@ const TradingPortal = (props: TradingPortalProps) => {
             `text-white text-5xl " ${currentView == VIEWS.USER_ADD_FUNDS ? "  underline" : ""}`
           }>add funds</h1>
         </div>
+        <div className={"hover:cursor-pointer ml-8"} onClick={selectUserSearchStocks}>
+          <h1 className={
+            `text-white text-5xl " ${currentView == VIEWS.USER_SEARCH_STOCKS ? "  underline" : ""}`
+          }>search</h1>
+        </div>
       </div>
       {
         (currentView === VIEWS.USER_POSITIONS) &&
@@ -66,6 +77,10 @@ const TradingPortal = (props: TradingPortalProps) => {
       {
         (currentView === VIEWS.USER_ADD_FUNDS) &&
         <UserAddFundsView backendUrl={backendUrl} authToken={authToken} />
+      }
+      {
+        (currentView === VIEWS.USER_SEARCH_STOCKS) &&
+        <UserSearchView backendUrl={backendUrl} authToken={authToken} />
       }
     </div>
   )
