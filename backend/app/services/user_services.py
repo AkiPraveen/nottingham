@@ -21,6 +21,10 @@ def get_user_by_username(username: str) -> User:
 
 
 def create_user(username: str, password: str) -> User:
+    # check for existing user
+    if get_user_by_username(username):
+        raise Exception('User already exists')
+
     user = User(username=username)
     set_password(user, password)
     db.session.add(user)
