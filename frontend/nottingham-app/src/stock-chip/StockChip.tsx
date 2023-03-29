@@ -34,7 +34,7 @@ const StockChip = (props: StockChipProps) => {
 
   return (
     <div className={
-      "text-white flex flex-column lg:w-6/12 md:w-10/12 sm:w-full h-36 mb-2 p-8" + (isRed ? " bg-red-500" : " bg-green-500")
+      "text-white flex flex-column lg:w-8/12 md:w-10/12 sm:w-full h-36 mb-2 p-8" + (isRed ? " bg-red-500" : " bg-green-500")
     }>
       <div className={"w-4/12"}>
         <h3 className={"text-6xl"}>{ticker}</h3>

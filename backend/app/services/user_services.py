@@ -16,6 +16,11 @@ def add_balance_usd_cents(username: str, balance_usd_cents: int) -> int:
     return user.balance_usd_cents
 
 
+def get_balance_usd_cents(username: str) -> int:
+    user = get_user_by_username(username)
+    return user.balance_usd_cents
+
+
 def get_user_by_username(username: str) -> User:
     return User.query.filter(User.username == username).first()
 

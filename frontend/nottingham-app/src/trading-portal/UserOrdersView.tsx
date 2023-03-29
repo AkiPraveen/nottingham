@@ -1,5 +1,6 @@
 import React from "react";
 import Emoji from "../util/Emoji";
+import UserBalance from "../user-balance/UserBalance";
 
 export type UserOrdersViewProps = {
   backendUrl: string;
@@ -119,8 +120,9 @@ const UserOrdersView = (props: UserOrdersViewProps) => {
   }
 
   return (
-    <div className={"text-white py-8"}>
-      <h1 className={"text-3xl"}>
+    <div className={"text-white pb-8"}>
+      <UserBalance backendUrl={backendUrl} authToken={authToken}/>
+      <h1 className={"mt-8 text-3xl"}>
         disclaimer
       </h1>
       <h3 className={"pb-8"}>
