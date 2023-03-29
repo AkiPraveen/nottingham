@@ -23,7 +23,7 @@ const Login = (loginProps: LoginProps) => {
   const [errorText, setErrorText] = React.useState('');
 
   const handleLogin = () => {
-    const credentials = {
+    const credentials: RegisterCredentials = {
       username: username,
       password: password
     }

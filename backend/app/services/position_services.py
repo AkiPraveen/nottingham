@@ -6,6 +6,17 @@ import yfinance as yf
 VALID_ORDER_TYPES = ['BUY', 'SELL']
 
 
+def get_user_positions(username: str):
+    user = user_services.get_user_by_username(username)
+    positions = position_model.db.session.query(
+        position_model.Position
+    ).filter(
+        position_model.Position.user_id == user.id
+    ).all()
+    # return dict with ticker as key and holding as value
+    return {position.ticker: position.quantity for position in positions}
+
+
 def get_stock_price_usd_cents(ticker: str):
     """
     Get ticker history and return the last closing price. I am using the 1m interval and history

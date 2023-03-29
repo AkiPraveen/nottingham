@@ -17,7 +17,7 @@ function App() {
         setAuthenticated={setAuthenticated}
         setAuthToken={setAuthToken}/>
     ) : (
-      <TradingPortal />
+      <TradingPortal backendUrl={BACKEND_URL} authToken={authToken} />
     )
   );
 }

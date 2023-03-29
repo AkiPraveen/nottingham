@@ -6,6 +6,13 @@ from app.token_required import authorize
 position_blueprint = Blueprint('position', __name__)
 
 
+@position_blueprint.route('/', methods=['GET'])
+@authorize
+def get_positions(username: str):
+    user_positions = position_services.get_user_positions(username)
+    return {'owned_positions': user_positions}, 200
+
+
 @position_blueprint.route('/<ticker>/owned', methods=['GET'])
 @authorize
 def get_position(username: str, ticker: str):
