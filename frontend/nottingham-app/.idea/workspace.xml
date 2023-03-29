@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../backend/app/routers/user_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/routers/user_router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/trading-portal/UserSearchView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/services/position_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/services/position_services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trading-portal/UserAddFundsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/UserAddFundsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trading-portal/UserOrdersView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/UserOrdersView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trading-portal/TradingPortal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/TradingPortal.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

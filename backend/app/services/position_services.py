@@ -206,3 +206,44 @@ def get_position_by_ticker(ticker: str) -> position_model.Position:
         position_model.Position.ticker == ticker
     ).first()
     return found_position
+
+
+def get_research_by_ticker(ticker: str):
+    """Provided a stock ticker, return a dictionary containing research information on the stock, collected from YFinance. This research information includes:
+    - History (long, medium, and short term)
+
+    """
+    data = {}
+
+    # Get 3 separate sets of history
+    history_all_time = get_stock_price_history_usd_cents(
+        ticker=ticker,
+        period='max',
+        interval='3mo'
+    )
+
+    history_3mo = get_stock_price_history_usd_cents(
+        ticker=ticker,
+        period='3mo',
+        interval='1d'
+    )
+
+    history_5d = get_stock_price_history_usd_cents(
+        ticker=ticker,
+        period='5d',
+        interval='15m'
+    )
+
+    data['history_all_time'] = history_all_time
+    data['history_3mo'] = history_3mo
+    data['history_5d'] = history_5d
+
+    # get info
+    ticker_obj = yf.Ticker(ticker)
+    data['exchange_time'] = ticker_obj.info.get('exchangeTimezoneName')
+    data['exchange'] = ticker_obj.info.get('exchange')
+    data['name'] = ticker_obj.info.get('shortName')
+    data['analyst_rating'] = ticker_obj.info.get('averageAnalystRating')
+    data['after_hours'] = not ticker_obj.info.get('tradeable', False)
+
+    return data
