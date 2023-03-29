@@ -39,9 +39,7 @@ def login(username: str, password: str) -> str:
 
 
 def verify_user(username: str, password: str) -> bool:
-    print('verifying user')
     user = get_user_by_username(username)
-    print(f'user found {user}')
     if not user or not check_password(user, password):
         return False
     else:
@@ -59,9 +57,6 @@ def create_jwt_auth_token(username: str) -> str:
     jwt_payload = {
         "sub": username,
     }
-
-    print(f'jwt_payload: {jwt_payload}')
-    print(f'secret key: {JWT_SECRET_KEY}')
 
     jwt_token = jwt.encode(
         payload=jwt_payload,
