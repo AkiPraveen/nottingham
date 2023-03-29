@@ -16,11 +16,11 @@ const Login = (loginProps: LoginProps) => {
   const {backend_url} = loginProps;
 
   // username and password
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = React.useState<string>('');
+  const [password, setPassword] = React.useState<string>('');
 
   // error text
-  const [errorText, setErrorText] = React.useState('');
+  const [errorText, setErrorText] = React.useState<string>('');
 
   const handleLogin = () => {
     const credentials: RegisterCredentials = {

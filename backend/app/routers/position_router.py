@@ -6,14 +6,74 @@ from app.token_required import authorize
 position_blueprint = Blueprint('position', __name__)
 
 
+### INFORMATION FOR OWNED TICKERS
+
 @position_blueprint.route('/', methods=['GET'])
 @authorize
-def get_positions(username: str):
+def owned_tickers_summary(username: str):
+    """Aggregate data being displayed in the subsequent three endpoints, for one batched request"""
+    print('got here')
+    user_tickers = [
+        k for k in position_services.get_user_positions(username)
+    ]
+
+    position_quantities = position_services.get_user_positions(username)
+    position_market_prices = position_services.get_market_prices(user_tickers)
+    position_histories = {
+        ticker: position_services.get_stock_price_history_usd_cents(ticker, '5d', '30m') for ticker in user_tickers
+    }
+
+    result = {}
+    for ticker in user_tickers:
+        result[ticker] = {
+            'quantity': position_quantities[ticker],
+            'market_price_usd_cents': position_market_prices[ticker],
+            'history_usd_cents': position_histories[ticker],
+        }
+
+    return result, 200
+
+
+@position_blueprint.route('/quantity', methods=['GET'])
+@authorize
+def owned_tickers_quantity(username: str):
     user_positions = position_services.get_user_positions(username)
     return {'owned_positions': user_positions}, 200
 
 
-@position_blueprint.route('/<ticker>/owned', methods=['GET'])
+@position_blueprint.route('/history', methods=['GET'])
+@authorize
+def owned_tickers_history(username: str):
+    user_tickers = [k for k in position_services.get_user_positions(username)]
+
+    history = {
+        ticker: position_services.get_stock_price_history_usd_cents(ticker, '5d', '30m') for ticker in user_tickers
+    }
+    return {'history': history}, 200
+
+
+@position_blueprint.route('/market-prices', methods=['GET'])
+@authorize
+def owned_tickers_market_prices(username: str):
+    user_tickers = [
+        k for k in position_services.get_user_positions(username)
+    ]
+    prices = position_services.get_market_prices(
+        user_tickers
+    )
+    return {'prices': prices}, 200
+
+
+### INFORMATION FOR SINGLE TICKER
+
+@position_blueprint.route('/<ticker>/history', methods=['GET'])
+@authorize
+def single_ticker_history(username: str, ticker: str):
+    history = position_services.get_stock_price_history_usd_cents(ticker, '5d', '30m')
+    return {'history': history}, 200
+
+
+@position_blueprint.route('/<ticker>', methods=['GET'])
 @authorize
 def get_position(username: str, ticker: str):
     position = position_services.get_position_by_ticker(ticker)
@@ -25,6 +85,8 @@ def get_position(username: str, ticker: str):
     }
     return data, 200
 
+
+### ORDERS
 
 @position_blueprint.route('/order', methods=['POST'])
 @authorize

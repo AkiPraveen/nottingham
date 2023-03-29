@@ -1,3 +1,5 @@
+from typing import List
+
 from app.models import position_model, user_model
 from app.models.position_model import db
 from app.services import user_services
@@ -15,6 +17,37 @@ def get_user_positions(username: str):
     ).all()
     # return dict with ticker as key and holding as value
     return {position.ticker: position.quantity for position in positions}
+
+
+def get_stock_price_history_usd_cents(ticker: str, period: str, interval: str):
+    """
+    Get ticker history and return the last closing price. I am using the 1m interval and history
+    so that this will match up with the graph data. (I found that using info['regularMarketPrice']
+    was not always accurate, and sometimes returned a price that was not on the graph)
+
+    the value will be returned in USD cents, as that's what is stored in the db
+
+    References:
+        https://stackoverflow.com/questions/61104362/how-to-get-actual-stock-prices-with-yfinance
+        https://algotrading101.com/learn/yfinance-guide/
+    """
+    ticker_obj = yf.Ticker(ticker)
+    ticker_history = yf.Ticker(ticker).history(interval=interval, period=period)
+
+    # If we cannot find valid history for this ticker, it must not exist
+
+    if ticker_history['Close'].empty:
+        raise Exception('Invalid ticker')
+
+    # return in USD cents
+    return [int(price * 100) for price in ticker_history['Close']]
+
+
+def get_market_prices(tickers: List[str]):
+    return {
+        ticker:
+            get_stock_price_usd_cents(ticker) for ticker in tickers
+    }
 
 
 def get_stock_price_usd_cents(ticker: str):

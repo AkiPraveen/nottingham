@@ -1,7 +1,13 @@
 import React from "react";
+import StockChip from "../stock-chip/StockChip";
 
-type UserPositionsData = {
-  [ticker: string]: number
+// User positions data, from one aggregate request
+export type UserPositionsRequestData = {
+  [ticker: string]: {
+    quantity: number;
+    market_price_usd_cents: number;
+    history_usd_cents: number[];
+  }
 }
 
 export type UserPositionsViewProps = {
@@ -12,15 +18,18 @@ export type UserPositionsViewProps = {
 const UserPositionsView = (props:UserPositionsViewProps) => {
   const {authToken, backendUrl} = props;
 
-  const [userPositions, setUserPositions] = React.useState<UserPositionsData>({});
+  const [userPositionsRequestData, setUserPositionsRequestData] = React.useState<UserPositionsRequestData>({})
+
 
   // fetch user positions
   React.useEffect(() => {
+
+    // First, fetch the positions & their quantities
     fetch(`${backendUrl}/positions`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + authToken,
-      }
+      },
     }).then(async response => {
       const data = await response.json();
 
@@ -32,34 +41,27 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
       }
 
       console.log('positions data:', data);
-      const foundUserPositions = data['owned_positions']
+      const foundUserPositions = data
       console.log('found user positions:', foundUserPositions);
-      setUserPositions(foundUserPositions);
+      setUserPositionsRequestData(foundUserPositions);
     })
+
+
   }, [authToken, backendUrl])
 
   return (
     <div>
       <h1>User Positions</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Ticker</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(userPositions).map((ticker) => {
-            return (
-              <tr key={ticker}>
-                <td>{ticker}</td>
-                <td>{userPositions[ticker]}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-
+      {Object.keys(userPositionsRequestData).map((ticker) => {
+        return (
+          <StockChip
+            ticker={ticker}
+            quantity={userPositionsRequestData[ticker]['quantity']}
+            marketPriceUsdCents={userPositionsRequestData[ticker]['market_price_usd_cents']}
+            historyUsdCents={userPositionsRequestData[ticker]['history_usd_cents']}
+          />
+        )
+      })}
     </div>
   )
 
