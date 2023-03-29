@@ -10,4 +10,4 @@ class User(db.Model):
     password = db.Column(db.String(), nullable=False)
 
     # balance that can be used in the stock market
-    balance = db.Column(db.Integer, default=0, nullable=False)
+    balance_usd_cents = db.Column(db.Integer, default=0, nullable=False)

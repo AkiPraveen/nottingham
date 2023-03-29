@@ -6,7 +6,7 @@ from app.token_required import authorize
 position_blueprint = Blueprint('position', __name__)
 
 
-@position_blueprint.route('/<ticker>', methods=['GET'])
+@position_blueprint.route('/<ticker>/owned', methods=['GET'])
 @authorize
 def get_position(username: str, ticker: str):
     position = position_services.get_position_by_ticker(ticker)

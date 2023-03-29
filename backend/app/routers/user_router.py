@@ -6,25 +6,25 @@ from app.token_required import authorize
 user_blueprint = Blueprint('user', __name__)
 
 
-@user_blueprint.route('/add_cash', methods=['POST'])
+@user_blueprint.route('/add_balance_usd_cents', methods=['POST'])
 @authorize
 def add_cash(username: str):
     request_json = request.json
 
     # Request body validation
-    cash = request_json.get('cash', None)
-    if not cash:
+    balance_usd_cents = request_json.get('balance_usd_cents', None)
+    if not balance_usd_cents:
         return 'Provide cash', 400
     try:
-        cash_int = int(cash)
+        balance_usd_cents = int(balance_usd_cents)
     except Exception as e:
-        return 'Invalid cash (integer required)', 400
+        return 'Invalid money (int required)', 400
 
     # Add cash
-    updated_cash = user_services.add_cash(username, cash_int)
+    updated_balance_usd_cents = user_services.add_balance_usd_cents(username, balance_usd_cents)
 
     resp = {
-        'updated_cash': updated_cash
+        'updated_balance_usd_cents': updated_balance_usd_cents
     }
 
     return resp, 200

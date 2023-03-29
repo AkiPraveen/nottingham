@@ -7,13 +7,13 @@ from app.token_required import JWT_ALGORITHM
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 
-def add_cash(username: str, cash: int) -> int:
+def add_balance_usd_cents(username: str, balance_usd_cents: int) -> int:
     user = get_user_by_username(username)
-    user.balance += cash
+    user.balance_usd_cents += balance_usd_cents
     db.session.add(user)
     db.session.commit()
     db.session.refresh(user)
-    return user.balance
+    return user.balance_usd_cents
 
 
 def get_user_by_username(username: str) -> User:
