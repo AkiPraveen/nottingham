@@ -14,11 +14,11 @@ def add_cash(username: str):
     # Request body validation
     balance_usd_cents = request_json.get('balance_usd_cents', None)
     if not balance_usd_cents:
-        return 'Provide cash', 400
+        return {'message': 'Include balance adj amount'}, 400
     try:
         balance_usd_cents = int(balance_usd_cents)
     except Exception as e:
-        return 'Invalid money (int required)', 400
+        return {'message': 'Invalid money (int required)'}, 400
 
     # Add cash
     updated_balance_usd_cents = user_services.add_balance_usd_cents(username, balance_usd_cents)
@@ -49,7 +49,13 @@ def register():
     except Exception as e:
         return {'message': str(e)}, 400
 
-    return {'message': 'OK'}, 200
+    # after successful registration, login and return token
+    token = user_services.login(username, password)
+    resp = {
+        'auth-token': token
+    }
+
+    return resp, 200
 
 
 @user_blueprint.route('/login', methods=['POST'])
@@ -66,7 +72,10 @@ def login():
         return 'Provide a password', 400
 
     # Login user
-    token = user_services.login(username, password)
+    try:
+        token = user_services.login(username, password)
+    except Exception as e:
+        return {'message': str(e)}, 400
 
     resp = {
         'auth-token': token
