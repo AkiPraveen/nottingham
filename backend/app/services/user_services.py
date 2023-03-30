@@ -4,6 +4,11 @@ from app import db
 from app.models.user_model import User
 from app.token_required import JWT_ALGORITHM
 
+# for the JWT secret key
+from dotenv import load_dotenv
+
+load_dotenv()
+
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 

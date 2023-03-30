@@ -44,7 +44,7 @@ const StockChip = (props: StockChipProps) => {
         <LineChart width={280} height={100} data={
         chartData}>
           <Line type="monotone" dataKey="price"
-          stroke={"#FFFFFF"}
+          stroke={"#FFFFFF"} dot={false} activeDot={false}
                  />
         </LineChart>
 
