@@ -11,6 +11,12 @@
 # production
 /build
 
+# frontend
+/frontend/nottingham-app/.env
+
+# backend
+/backend/.env
+
 # misc
 .DS_Store
 .env.local

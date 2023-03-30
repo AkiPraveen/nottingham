@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../backend/migrations/versions/4423ccf2d08f_fix_bug_with_two_people_buying_same_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/app/models/position_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/models/position_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/app/services/position_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/services/position_services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trading-portal/UserPositionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/UserPositionsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
