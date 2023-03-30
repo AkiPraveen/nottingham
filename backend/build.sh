@@ -1,5 +1,7 @@
 # install pip dependencies
 pip install -r requirements.txt
 
+echo done
+
 # apply all required migrations to the database
-flask db upgrade
+python -m flask db upgrade
