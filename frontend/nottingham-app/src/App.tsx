@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './login/Login';
 import TradingPortal from "./trading-portal/TradingPortal";
 
+// load environment variables from .env file
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL ?? ''
 
 function App() {
