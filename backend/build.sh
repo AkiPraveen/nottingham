@@ -1,5 +1,5 @@
 # install pip dependencies
-pip install -r requirements.txt
+source nottingham/bin/activate
 
 echo done
 
