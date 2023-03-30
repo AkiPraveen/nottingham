@@ -1,7 +1,7 @@
 # install pip dependencies
-source nottingham/bin/activate
+pip3 install -r requirements.txt
 
-echo done
+which flask
 
 # apply all required migrations to the database
-python -m flask db upgrade
+python3 -m flask db upgrade
