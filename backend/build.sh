@@ -2,6 +2,10 @@
 pip3 install -r requirements.txt
 
 echo ------------------------------------
+echo 'python version:'
+python3 --version
+
+echo ------------------------------------
 
 echo 'flask version:'
 which flask
