@@ -1,6 +1,6 @@
 # Nottingham
 
-A humorous robinhood clone (using yfinance) that doesn't take itself too seriously.
+A simple robinhood clone (using yfinance) that doesn't take itself too seriously.
 
 ![Kapture 2023-03-29 at 16 37 43](https://user-images.githubusercontent.com/10789158/228691383-5038da03-9762-451c-b4d5-9a6bdfb707fd.gif)
 
