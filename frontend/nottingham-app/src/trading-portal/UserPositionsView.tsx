@@ -26,7 +26,7 @@ const UserPositionsView = (props:UserPositionsViewProps) => {
 
   const fetchUserData = () => {
     // First, fetch the positions & their quantities
-    fetch(`${backendUrl}/positions`, {
+    fetch(`${backendUrl}/positions/`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + authToken,

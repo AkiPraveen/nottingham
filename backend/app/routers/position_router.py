@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 
 from app.services import position_services
 from app.token_required import authorize
@@ -8,11 +8,11 @@ position_blueprint = Blueprint('position', __name__)
 
 ### INFORMATION FOR OWNED TICKERS
 
+
 @position_blueprint.route('/', methods=['GET'])
 @authorize
 def owned_tickers_summary(username: str):
     """Aggregate data being displayed in the subsequent three endpoints, for one batched request"""
-    print('got here')
     user_tickers = [
         k for k in position_services.get_user_positions(username)
     ]
@@ -31,7 +31,7 @@ def owned_tickers_summary(username: str):
             'history_usd_cents': position_histories[ticker],
         }
 
-    return result, 200
+    return jsonify(result), 200
 
 
 @position_blueprint.route('/quantity', methods=['GET'])
