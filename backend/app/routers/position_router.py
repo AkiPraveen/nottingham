@@ -1,10 +1,10 @@
+
 from flask import Blueprint, request, jsonify
 
 from app.services import position_services
 from app.token_required import authorize
 
 position_blueprint = Blueprint('position', __name__)
-
 
 ### INFORMATION FOR OWNED TICKERS
 
