@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="" />
+    <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/Flask_Cors-3.0.10.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/flask_cors/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/flask_cors/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/flask_cors/decorator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/flask_cors/extension.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/flask_cors/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/routers/user_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/routers/user_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
