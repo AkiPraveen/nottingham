@@ -1,9 +1,13 @@
 from flask import Blueprint, request
+from flask_cors import CORS
 
 from app.services import position_services
 from app.token_required import authorize
 
 position_blueprint = Blueprint('position', __name__)
+
+cors = CORS(position_blueprint,
+            resources={r"/": {"origins": ["https://nottingham.onrender.com", "http://localhost:3000"]}})
 
 
 ### INFORMATION FOR OWNED TICKERS

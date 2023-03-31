@@ -1,9 +1,13 @@
 from flask import Blueprint, request
+from flask_cors import CORS
 
 from app.services import user_services
 from app.token_required import authorize
 
 user_blueprint = Blueprint('user', __name__)
+
+cors = CORS(user_blueprint,
+            resources={r"/": {"origins": ["https://nottingham.onrender.com", "http://localhost:3000"]}})
 
 
 @user_blueprint.route('/balance_usd_cents', methods=['GET'])

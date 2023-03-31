@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from dotenv import load_dotenv
@@ -15,6 +16,9 @@ DATABASE_URL = os.environ.get('DATABASE_URL', '')
 def create_app(test_config=None):
     # create flask app
     app = Flask(__name__)
+
+    cors = CORS(app, resources={r"/": {"origins": ["https://nottingham.onrender.com", "http://localhost:3000"]}})
+
     # Connect to local database at 5432, username & password are postgres, db name is nottingham
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     db.init_app(app)
