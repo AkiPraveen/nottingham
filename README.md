@@ -10,6 +10,3 @@ A simple robinhood clone (using yfinance) that doesn't take itself too seriously
 (From Wikipedia)
 
 [📝 Official docs](https://aki-internal.notion.site/Nottingham-a-SellScaleHood-Clone-150ceafb24e4463fb784be22e9a27f57)
-
-# misc
-* the python venv folder is located under `backend/nottingham`
