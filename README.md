@@ -14,3 +14,5 @@ A simple robinhood clone (using yfinance) that doesn't take itself too seriously
 ## 🌎 Hosted on the web
 
 This repo is hooked up to render, where changes trigger automatic deploys of the static site frontend, the web service backend, and the postgres database. _Note: it's on render's free tier, which has a 30-second spin up time for the first request. Please give it a moment if you have just opened up the website._ 
+
+[nottingham.onrender.com][https://nottingham.onrender.com/]
