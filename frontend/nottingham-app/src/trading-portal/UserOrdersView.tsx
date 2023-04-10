@@ -144,7 +144,7 @@ const UserOrdersView = (props: UserOrdersViewProps) => {
         order ticker</h1>
       <h3>Enter desired order ticker below.</h3>
       <input type={"text"} className={"focus:outline-none appearance-none bg-black text-white border border-white px-4  w-32"} value={orderTicker}
-      onChange={(e) => setOrderTicker(e.target.value)}/>
+      onChange={(e) => setOrderTicker(e.target.value.toUpperCase())}/>
 
 
       <h1 className={"text-3xl mt-8"}>

@@ -1,10 +1,10 @@
-
 from flask import Blueprint, request, jsonify
 
 from app.services import position_services
 from app.token_required import authorize
 
 position_blueprint = Blueprint('position', __name__)
+
 
 ### INFORMATION FOR OWNED TICKERS
 
@@ -112,6 +112,7 @@ def order(username: str):
     ticker = request_json.get('ticker', None)
     if not ticker:
         return 'Provide a valid ticker', 400
+    ticker = ticker.upper()
 
     quantity = request_json.get('quantity', None)
     if not quantity:
