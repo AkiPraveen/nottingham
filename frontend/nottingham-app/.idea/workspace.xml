@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../backend/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/routers/position_router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trading-portal/UserPositionsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/trading-portal/UserPositionsView.tsx" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +55,8 @@
       <updated>1680065316011</updated>
       <workItem from="1680065318013" duration="1632000" />
       <workItem from="1680067231376" duration="13813000" />
+      <workItem from="1680822488487" duration="620000" />
+      <workItem from="1680823888495" duration="2000" />
     </task>
     <servers />
   </component>
