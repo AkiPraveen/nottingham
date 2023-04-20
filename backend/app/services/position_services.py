@@ -62,7 +62,6 @@ def get_stock_price_usd_cents(ticker: str):
         https://stackoverflow.com/questions/61104362/how-to-get-actual-stock-prices-with-yfinance
         https://algotrading101.com/learn/yfinance-guide/
     """
-    ticker_obj = yf.Ticker(ticker)
     ticker_history = yf.Ticker(ticker).history(interval="1m", period="1d")
 
     # If we cannot find valid history for this ticker, it must not exist

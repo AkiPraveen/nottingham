@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb6d6636-2e3a-4df0-b446-1e50ad034cb3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/backend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/app/services/position_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/app/services/position_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/INSTALLER" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/INSTALLER" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/METADATA" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/METADATA" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/REQUESTED" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/REQUESTED" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/entry_points.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/entry_points.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.14.dist-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance-0.2.18.dist-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/scrapers/quote.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/scrapers/quote.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/nottingham/lib/python3.9/site-packages/yfinance/version.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
